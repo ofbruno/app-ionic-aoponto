@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list radio-group [(ngModel)]="lote.genero" >
+    <ion-list-header text-wrap>
+      <p>Os animais deste lote são</p>
+    </ion-list-header>
+      <ion-item *ngFor="let g of generos">
+        <ion-label>{{g.nome}}</ion-label>
+        <ion-radio value="{{g.id}}" (ionSelect)="change()"></ion-radio>
+      </ion-item>
+    </ion-list>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (tap)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (tap)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,66 @@
+<ion-header no-shadow no-border>
+  <ion-navbar color="light" no-border>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="sign" has-footer>
+
+  <div text-center padding-top>
+    <img src="assets/imgs/logo.png" width="150" />
+  </div>
+
+  <form (ngSubmit)="loginEmail()" [formGroup]="loginForm">
+    <ion-list inset>
+
+      <ion-item>
+        <ion-input id="email" type="email" required placeholder="E-mail" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input id="password" type="{{passwordtype}}" required placeholder="Senha" formControlName="password"></ion-input>
+        <button ion-button clear class="eye-icon-btn" color="{{colorEye}}" type="button" item-right (tap)="exibirSenha()">
+          <span class="fa fa-eye fa-lg"></span>
+        </button>
+      </ion-item>
+
+    </ion-list>
+    <div padding-top padding-bottom>
+    </div>
+
+    <div padding-left padding-right>
+      <button type="submit" ion-button full color="dark">Entrar</button>
+    </div>
+
+    <div text-center>
+      <button onclick="javascript:void(0);" (tap)="recuperarSenha()" ion-button small clear color="primary">Esqueci
+        minha senha</button>
+    </div>
+
+    <!-- <div text-center>
+      ou
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col padding-left>
+          <button ion-button small full class="facebook" (tap)="loginFacebook()" color="facebook">
+            <span class="fa fa-facebook"></span>
+          </button>
+        </ion-col>
+        <ion-col padding-right>
+          <button ion-button small full (tap)="loginGoogle()" color="google">
+            <span class="fa fa-google"></span>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid> -->
+  </form>
+</ion-content>
+
+<ion-footer no-padding no-margin [hidden]="keyboardOpen">
+
+  <button type="submit" ion-button full clear color="primary" no-margin onclick="javascript:void(0);" (tap)="cadastrarUsuario()">Cadastrar</button>
+
+</ion-footer>

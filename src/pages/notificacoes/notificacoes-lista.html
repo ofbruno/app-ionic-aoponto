@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notificações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <div *ngFor="let n of notificacoes" (tap)="abrir(n)">
+      <ion-item [ngClass]="n.lido ? 'lido' : 'nao-lido'">
+        <text-avatar [text]="n.titulo" item-left></text-avatar>
+        <h2 id="origem" class="notificacao-origem">{{n.titulo}}</h2>
+        <p class="notificacao-mensagem" text-wrap>{{n.mensagem}}</p>
+        <ion-note>
+          <i class="fa fa-clock-o"></i> {{n.dataHora | amLocale:'pt-br' | amTimeAgo}}
+        </ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="obterMais($event)" *ngIf="existeMais">
+
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="buscando notificações..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,31 @@
+
+.list-md {
+  margin: 0 0 0 0 !important;
+}
+
+.list-ios {
+  margin: 0 0 0 0 !important;
+}
+
+.item-oferta {
+  height: 4.5rem;
+  min-height: 3rem;
+}
+
+ion-item {
+  ion-row {
+    ion-col {
+      p {
+        font-size: 1.2rem !important;
+      }
+      span {
+        font-size: 1.3rem;
+        color: color($colors, 'dark') !important;
+      }
+    }
+  }
+}
+
+#mais-detalhes {
+  color: color($colors, 'primary') !important;
+}

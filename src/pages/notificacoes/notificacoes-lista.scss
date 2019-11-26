@@ -1,0 +1,14 @@
+notificacoes-lista {
+
+    .scroll-content {
+        background-color: color($colors, 'light');
+    }
+ 
+    .nao-lido {
+        background-color:rgba(0,0,0,0.03);
+    }
+
+    .lido {
+        background-color: color($colors, 'light');
+    }
+}

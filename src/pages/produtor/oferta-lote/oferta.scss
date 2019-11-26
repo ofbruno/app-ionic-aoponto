@@ -1,0 +1,52 @@
+
+.scroll-content {
+    background-color: color($colors, 'light');
+}
+
+
+.list-header {
+    border-top: 1px solid #c8c7cc;
+}
+.list-header p { 
+    color: color($colors, 'primary');
+    letter-spacing: 0;
+}
+
+.endereco-valor {
+    color:#696969;
+}
+
+.comentarios {
+    min-height: 4em; 
+    padding-top: 0;
+}
+
+.popover-content {
+    top: 20px;
+    right: 20px;
+    max-height: 50px;
+}
+
+.comentarios {
+    min-height: 80px;
+}
+
+ion-item ion-row ion-col label {
+    color:lightgray;
+}
+
+ion-item ion-row ion-col span {
+    color:gray;
+}
+
+.button-anexo {
+    width: 100%;
+}
+
+.requerido {
+    color: firebrick;
+}
+
+#label-toggle-receber-oferta {
+    padding-left: 5px;
+}

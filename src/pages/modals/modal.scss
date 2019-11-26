@@ -1,0 +1,23 @@
+modal-lista {
+    ion-searchbar{        
+        .searchbar-input-container{            
+            .searchbar-input{
+                border: 0;
+                background: #F5F5F5;
+                box-shadow: none;
+                border-radius: 5px;
+            }
+        }
+     }
+}
+
+modal-texto {
+    .fundo-branco {
+        background-color: #FFFFFF;
+    }
+    
+    .input-text {
+        padding-top: 10px;
+    }
+}
+

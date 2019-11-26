@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Minhas vendas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="consultarVendas($event)">
+    <ion-refresher-content pull-min="100" snapback-duration="500ms" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item class="no-padding-item" text-center no-pedding *ngIf="carregandoTela">
+      <ion-spinner color="primary"></ion-spinner>
+    </ion-item>
+
+    <button ion-item *ngFor="let o of vendas" (click)="detalhes(o)">
+      <h2 class="titulo-lista">{{o.tipoDescricao}}</h2>
+      <p>{{o.raca }}</p>
+      <p>
+        <ion-badge class="status{{o.status}}">{{o.statusDescricao}}</ion-badge>
+      </p>
+      <p>{{o.descricaoSecundaria}}</p>
+      <p>
+        <ion-note>
+          <i class="fa fa-clock-o"></i> {{o.dataHora}}
+        </ion-note>
+      </p>
+      <p>
+        <ion-note>
+          <i class="fa fa-search"></i> {{o.codigo}}
+        </ion-note>
+      </p>
+    </button>
+  </ion-list>
+
+</ion-content>

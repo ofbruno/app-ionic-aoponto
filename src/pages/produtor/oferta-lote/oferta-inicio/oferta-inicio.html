@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div text-left text-wrap>
+
+      <div color="dark" padding class="bg-gray-light">
+          <p no-margin>Para incluir uma sua oferta, é necessário criar um ou mais lotes separando os animais por suas características.</p>
+
+          <p>Você deve informar os dados relativos a raça, idade, localização, etc.</p>
+      </div>
+
+    <ion-list radio-group>
+
+      <ion-list-header>
+        <p>Selecione o destino da oferta</p>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Frigoríficos</ion-label>
+        <ion-radio value="1" (ionSelect)="comecar(1)"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Outros produtores</ion-label>
+        <ion-radio value="2" (ionSelect)="comecar(2)"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

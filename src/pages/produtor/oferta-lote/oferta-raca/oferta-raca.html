@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list radio-group [(ngModel)]="lote.racaId">
+    <ion-list-header text-wrap>
+      <p>Selecione a raça dos animais</p>
+    </ion-list-header>
+
+    <ion-item *ngFor="let r of racas">
+      <ion-label>{{r.nome}}</ion-label>
+      <ion-radio value="{{r.id}}" (ionSelect)="change()"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear color="dark" (tap)="cancelar()">
+          Cancelar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (tap)="proxima()">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

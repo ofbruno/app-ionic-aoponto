@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list-header text-wrap>
+    <p>Registros</p>
+  </ion-list-header>
+
+  <div padding class="bg-gray-light">
+    <p text-wrap no-margin>Informe os números de registro dos animais ou avance para a próxima etapa</p>
+  </div>
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of registros">
+      <ion-label fixed>{{item.id}}</ion-label>
+      <ion-input type="text" [(ngModel)]="item.numero"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (click)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (click)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

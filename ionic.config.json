@@ -1,0 +1,19 @@
+{
+  "name": "aoponto",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/webapi/",
+      "proxyUrl": "http://aopontoapi.azurewebsites.net/api/"
+    },
+    {
+      "path": "/webapiLocal/",
+      "proxyUrl": "http://localhost:51201/api/"
+    }
+  ],
+  "pro_id": "1b963011",
+  "id": "1b963011"
+}

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list radio-group [(ngModel)]="lote.tipoFrete">
+    <ion-list-header text-wrap>
+      <p>Frete</p>
+    </ion-list-header>
+    <ion-item>
+      <p text-wrap>Informe o responsável pelo frete</p>
+    </ion-item>
+
+    <ion-item *ngFor="let o of opcoes">
+      <ion-label>{{o.descricao}}</ion-label>
+      <ion-radio value="{{o.valor}}" (ionSelect)="valorAlterado()"></ion-radio>
+    </ion-item>
+
+    <ion-item (tap)="solicitarDistancia()"  *ngIf="lote.distanciaLimiteFrete">
+      <ion-row  no-padding>
+        <ion-col col-5 no-padding>Limite</ion-col>
+        <ion-col col-7 no-padding>
+          <label no-padding *ngIf="!lote.distanciaLimiteFrete" [ngClass]="{'requerido': requerido=='distancia'}">Informar</label>
+          <span [innerText]="lote.distanciaLimiteFrete.toString() + ' km' || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (click)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (click)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

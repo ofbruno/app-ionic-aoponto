@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalhes da compra</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header no-margin>
+      <p>Sua compra</p>
+    </ion-list-header>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Número</p>
+          <span>{{lote.codigo}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Situação</p>
+          <span>{{lote.statusDescricao}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Data</p>
+          <span>{{lote.dataHora}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Cidade</p>
+          <span>{{lote.enderecoCidade}}</span> <span>{{lote.enderecoEstado}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Lote</p>
+          <span>{{lote.genero}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Raça</p>
+          <span>{{lote.raca}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Quantidade</p>
+          <span>{{lote.quantidade}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Preço da arroba</p>
+          <span>{{lote.preco}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Idade</p>
+          <span>{{lote.idade}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Peso médio</p>
+          <span>{{lote.pesoMedio}}</span> <span *ngIf="lote.pesoMedio">Kg</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta">
+      <ion-row>
+        <ion-col>
+          <p>Prazo para receber</p>
+          <span>{{lote.prazo}}</span>
+        </ion-col>
+        <ion-col>
+          <p>Disponibilidade</p>
+          <span>{{lote.disponibilidade}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta" (click)="maisDetalhes()">
+      <ion-row>
+        <ion-col text-left>
+          <span id="mais-detalhes">Mais detalhes</span>
+        </ion-col>
+        <ion-col text-right>
+          <ion-icon name="ios-arrow-down" color="primary" *ngIf="!mostrarMaisDetalhes"></ion-icon>
+          <ion-icon name="ios-arrow-up" color="primary" *ngIf="mostrarMaisDetalhes"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item class="item-oferta" *ngIf="mostrarMaisDetalhes">
+      <ion-row>
+        <ion-col>
+          <p>Frete</p>
+          <span>{{lote.tipoFrete}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item text-left text-wrap class="item-oferta" *ngIf="mostrarMaisDetalhes && lote.comentarios">
+      <ion-row>
+        <ion-col>
+          <p>{{lote.comentarios}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-scroll scrollX="true" class="lista-foto-thumbnails"
+      *ngIf="mostrarMaisDetalhes && lote.anexos && lote.anexos.length">
+      <div nowrap>
+        <ion-thumbnail class="item-foto-thumbnail" *ngFor="let anexo of lote.anexos; let i = index"
+          (click)="mostrarFotos(i)">
+          <img src="{{anexo}}">
+        </ion-thumbnail>
+      </div>
+    </ion-scroll>
+
+  </ion-list>
+
+  <div padding class="bg-gray-light">
+    <p text-wrap no-margin>Linha do tempo</p>
+  </div>
+
+  <ion-list class="timeline">
+
+    <ion-item no-lines *ngFor="let etapa of etapasCompra; let index = index;">
+      <span class="block timeline-disc text-center status{{etapa.status}}"
+        [ngClass]="{ 'target': index == etapasCompra.length-1 }">
+        <span></span>
+      </span>
+      <div class="timeline-item">
+        <p>{{etapa.statusDescricaoDetalhada}}</p>
+        <ion-note><i class="fa fa-clock-o"></i> {{etapa.dataHora}}</ion-note>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

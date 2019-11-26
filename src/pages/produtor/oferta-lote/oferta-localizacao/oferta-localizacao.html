@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-margin>
+    <ion-list-header text-wrap>
+      <p>Localização dos animais</p>
+    </ion-list-header>
+
+    <ion-item (tap)="solicitarNomeLocalizacao()" no-lines>
+      <ion-row>
+        <ion-col col-4>Nome</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.nome">Opcional</label>
+          <span [innerText]="lote.endereco.nome || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-list-header text-wrap>
+      <p>Endereço</p>
+    </ion-list-header>
+
+    <ion-item (tap)="solicitarEstado()">
+      <ion-row>
+        <ion-col col-4>Estado</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.estadoId" [ngClass]="{'requerido': requerido=='estadoId'}">Informar</label>
+          <span [innerText]="lote.endereco.estado || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarCidade()">
+      <ion-row>
+        <ion-col col-4>Município</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.cidadeId" [ngClass]="{'requerido': requerido=='cidadeId'}">Informar</label>
+          <span [innerText]="lote.endereco.cidade || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarEndereco()">
+      <ion-row>
+        <ion-col col-4>Endereço</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.logradouro" [ngClass]="{'requerido': requerido=='logradouro'}">Informar</label>
+          <span [innerText]="lote.endereco.logradouro || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarNumero()">
+      <ion-row>
+        <ion-col col-4>Número</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.numero">Opcional</label>
+          <span [innerText]="lote.endereco.numero || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarComplemento()" no-lines>
+      <ion-row>
+        <ion-col col-4>Compl.</ion-col>
+        <ion-col col-8 text-wrap>
+          <label *ngIf="!lote.endereco.complemento">Opcional</label>
+          <span [innerText]="lote.endereco.complemento || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-list-header text-wrap>
+      <p>Posição geográfica</p>
+    </ion-list-header>
+    <ion-item>
+      <ion-label text-wrap>Minha localização atual é a mesma localização dos animais deste lote
+      </ion-label>
+      <ion-toggle [(ngModel)]="lote.endereco.coordenadasEndereco"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <p text-wrap>Marque para que possamos identificar a posição
+          geográfica.
+        </p>
+      </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (click)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (click)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

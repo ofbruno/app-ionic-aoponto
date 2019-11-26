@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content has-footer> 
+
+  <div class="main-content">
+    <ion-list>
+      <ion-list-header>
+        <p>Meus dados</p>
+      </ion-list-header>
+      <ion-item no-lines>
+        <div text-center>
+          <img [src]="perfil.fotoUrl">
+        </div>
+
+        <!--<button ion-button clear>Alterar</button>-->
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="perfil.nome" placeholder="Nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="email" [(ngModel)]="perfil.email" disabled="true" placeholder="E-mail"></ion-input>
+      </ion-item>
+
+      <ion-item no-lines>
+        <ion-input type="tel" [(ngModel)]="perfil.telefone" placeholder="Telefone"></ion-input>
+      </ion-item>
+    <div *ngIf="perfil.tipo == 2">
+      <ion-list-header>
+        <p>Configurações</p>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Sou comprador</ion-label>
+        <ion-toggle [(ngModel)]="perfil.comprador"></ion-toggle>
+      </ion-item>
+
+      <ion-item no-lines>
+          <p text-wrap>Ao selecionar essa opção, você passa a receber notificações de ofertas de outros produtores.</p>
+        </ion-item>
+
+    </div>
+    </ion-list>
+
+  </div>
+
+</ion-content>
+
+<ion-footer no-padding no-margin>
+ 
+    <button ion-button full clear color="primary" no-margin (click)="salvar()">SALVAR</button>
+
+</ion-footer>

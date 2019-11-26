@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cadastrar conta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="sign">
+
+  <form (ngSubmit)="criarUsuario()" [formGroup]="form">
+
+    <ion-list inset padding>
+      <div padding class="bg-gray-light">
+        <p text-wrap no-margin>Por favor, informe seus dados e defina sua senha de acesso ao aplicativo.</p>
+      </div>
+
+      <ion-item>
+        <ion-input id="nome" type="text" required placeholder="Nome" formControlName="nome"></ion-input>        
+      </ion-item>
+
+      <ion-item>
+        <ion-input id="email" type="email" required placeholder="E-mail" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input id="telefone" type="tel" placeholder="Telefone" formControlName="telefone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input id="password" type="{{passwordtype}}" required placeholder="Senha" formControlName="password">
+        </ion-input>
+        <button ion-button clear class="eye-icon-btn" color="{{colorEye}}" type="button" item-right
+          (tap)="exibirSenha(1)">
+          <span class="fa fa-eye fa-lg"></span>
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <ion-input id="passwordConfirm" type="{{passwordtypeConfirm}}" required placeholder="Confirmar senha"
+          formControlName="passwordConfirm">
+        </ion-input>
+        <button ion-button clear class="eye-icon-btn" color="{{colorEyeConfirm}}" type="button" item-right
+          (tap)="exibirSenha(2)">
+          <span class="fa fa-eye fa-lg"></span>
+        </button>
+      </ion-item>
+
+      <ion-list radio-group formControlName="tipo">
+        <ion-list-header text-wrap>
+          <p>Selecione seu perfil</p>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Produtor rural</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Frigorífico</ion-label>
+          <ion-radio value="3"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Técnico</ion-label>
+          <ion-radio value="4"></ion-radio>
+        </ion-item>        
+      </ion-list>
+
+    </ion-list>
+
+    <div padding-horizontal>
+      <div class="form-error">{{signupError}}</div>
+
+      <button ion-button full color="dark" type="submit">Cadastrar</button>
+    </div>
+
+    <!-- <div text-center padding-top>
+        ou
+      </div>
+
+      <ion-grid>
+        <ion-row>
+            <ion-col padding-left>
+                <button ion-button small full class="facebook" (tap)="loginFacebook()" color="facebook">
+                  <span class="fa fa-facebook"></span>
+                </button>
+              </ion-col>
+          <ion-col padding-right>
+            <button ion-button small full (tap)="loginGoogle()" color="google">
+                <span class="fa fa-google"></span>
+            </button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid> -->
+
+  </form>
+</ion-content>

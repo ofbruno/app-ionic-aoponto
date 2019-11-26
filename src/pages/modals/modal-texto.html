@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titulo}}</ion-title>
+    <ion-buttons end>
+      <button icon-only ion-button clear (tap)="confirmar()">
+        Adicionar
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  >
+
+  <ion-textarea #inputTexto class="input-text" type="text" [(ngModel)]="texto" rows="30"></ion-textarea>
+
+  <ion-fab left bottom #fab (tap)="fechar()">
+    <button ion-fab color="primary">
+      <ion-icon name="ios-arrow-round-back-outline" (tap)="fechar()"></ion-icon>
+    </button>
+  </ion-fab>
+  <!-- <ion-fab right bottom #fab (tap)="confirmar()">
+    <button ion-fab color="primary"><ion-icon name="ios-checkmark-outline" (tap)="confirmar()"></ion-icon></button>
+  </ion-fab> -->
+
+</ion-content>

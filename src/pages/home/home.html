@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title color="primary">Ao Ponto</ion-title>
+
+    <ion-buttons end>
+      <button id="notification-button" icon-only ion-button color="primary" (click)="abrirNotificacoes()" *ngIf="global.usuarioLogado">
+        <span class="fa fa-bell-o fa-lg">
+          <span id="notifications-badge" color="success">4</span>
+        </span>
+      </button>
+      
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content hide-fab padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="carregarFeed($event)">
+    <ion-refresher-content pull-min="100" snapback-duration="500ms" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div id="list-overlay" *ngIf="fabButtonOpened==true" (click)="closeFab()"></div>
+
+  <!-- -->
+
+  <ion-card *ngFor="let f of feed" (click)="abrirNoticia(f.id)">
+
+    <ion-item>
+      <h2>{{f.descricaoTipo}}</h2>
+      <ion-note><i class="fa fa-clock-o"></i> {{f.descricaoTempo}}</ion-note>
+    </ion-item>
+
+    <img *ngIf="f.imagemUrl" src="{{f.imagemUrl}}" />
+
+    <ion-card-content>
+      <h3 padding-bottom padding-top><b>{{f.titulo}}</b></h3>
+      <p>{{f.descricao}}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- -->
+  <ion-fab right bottom #fab [hidden]="!global.usuarioLogado">
+    <button ion-fab color="primary" (tap)="openFabButton(fab)">
+      <ion-icon name="ios-add"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab color="light" (click)="novaOferta()">
+        <span class="fa fa-bullhorn fa-lg"></span>
+        <div class="label">Informar nova oferta</div>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer *ngIf="!global.usuarioLogado">
+  <ion-row>
+    <ion-col>
+      <ion-buttons>
+        <button ion-button icon-right block color="primary" (click)="abrirLogin()">
+          Entrar
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

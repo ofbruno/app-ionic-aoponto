@@ -1,0 +1,65 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/imgs/logo.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-menu [content]="content" *ngIf="global.usuarioLogado">
+  <ion-content>
+
+    <div class="spacer" *ngIf="global.usuarioLogado"></div>
+
+    <ion-list id="list-profile" menuClose (click)="abrirPerfil()">
+
+      <ion-item color="dark" *ngIf="global.usuarioLogado">
+        <ion-avatar item-left *ngIf="global.usuario.fotoUrl">
+          <img src="{{global.usuario.fotoUrl}}" />
+        </ion-avatar>
+        <h2>
+          {{global.usuario.nome}}
+        </h2>
+        <p>
+          {{global.usuario.descricaoTipo}}
+        </p>
+      </ion-item>
+
+      <ion-item color="dark" *ngIf="!global.usuarioLogado">
+          <h2>
+            Ao Ponto
+          </h2>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list id="list-menu" no-lines color="dark" *ngIf="global.usuarioLogado">
+
+      <ion-item class="menu-label" menuClose ion-item *ngFor="let p of pages" (click)="abrirPagina(p)" color="dark">
+        <span class="{{p.icon}}" item-start detail-none></span>
+        {{p.title}}
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list no-lines color="dark">
+
+      <ion-item class="menu-label menu-separador" menuClose ion-item (click)="sair()" *ngIf="global.usuarioLogado"
+        color="dark">
+        <span class="fa fa-fw fa-sign-out" item-start></span>
+        Sair
+      </ion-item>
+
+      <ion-item class="menu-label" menuClose ion-item *ngIf="!global.usuarioLogado" (click)="abrirLogin()" color="dark">
+        <span class="fa fa-fw fa-user" item-start></span>
+        Entrar
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list padding-bottom>
+
+    <ion-list-header text-wrap>
+      <p>Preço</p>
+    </ion-list-header>
+
+    <div padding class="bg-gray-light">
+      <p text-wrap no-margin>
+        Informe o preço por arroba
+      </p>
+    </div>
+
+    <ion-item (tap)="solicitarPreco()">
+      <ion-row>
+        <ion-col col-5>Preço arroba</ion-col>
+        <ion-col col-7>
+          <label *ngIf="!lote.preco && !receberOfertaPrecoComprador" [ngClass]="{'requerido': requerido=='preco'}">Informar</label>
+          <label *ngIf="receberOfertaPrecoComprador">Em aberto</label>
+          <span [innerText]="(lote.preco | currency:'BRL':true:'1.2-2') || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="ativarReceberOferta()">
+      <ion-label id="label-toggle-receber-oferta">Receber oferta</ion-label>
+      <ion-toggle checked="false" (tap)="ativarReceberOferta()" [(ngModel)]="receberOfertaPrecoComprador"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list radio-group [(ngModel)]="lote.prazo">
+
+    <ion-list-header text-wrap>
+      <p>Prazo</p>
+    </ion-list-header>
+
+    <div padding class="bg-gray-light">
+      <p text-wrap no-margin>
+        Informe o prazo desejado para recebimento
+      </p>
+    </div>
+
+    <ion-item *ngFor="let p of prazos">
+      <ion-label>{{p.descricao}}</ion-label>
+      <ion-radio value="{{p.valor}}" (ionSelect)="valorAlterado()"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (tap)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (tap)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content has-footer>
+
+
+  <ion-list id="comentarios" (tap)="adicionarComentarios()" no-margin>
+    <ion-list-header>
+      <p>Finalizar oferta</p>
+    </ion-list-header>
+    <ion-item class="comentários" text-wrap>
+      <ion-row>
+        <ion-col col-12 class="comentarios">
+          <label *ngIf="!lote.comentarios">Adicionar comentários ou observações</label>
+          <span [innerText]="lote.comentarios || ''"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <p>Adicionar anexos</p>
+      </ion-list-header>
+    </ion-list>
+
+    <ion-row>
+      <ion-col col-4>
+        <button ion-button icon-start outline color="dark" class="button-anexo" (click)="anexarCamera($event)">
+          <span class="fa fa-camera fa-lg"></span>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-start outline color="dark" class="button-anexo" (click)="anexarFoto($event)">
+          <span class="fa fa-picture-o fa-lg"></span>
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-start outline color="dark" class="button-anexo" (click)="anexarVideo($event)">
+            <span  class="fa fa-video-camera fa-lg"></span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-scroll scrollX="true" class="lista-foto-thumbnails" *ngIf="lote.anexos && lote.anexos.length">
+    <div nowrap>
+      <ion-thumbnail class="item-foto-thumbnail" *ngFor="let anexo of lote.anexos; let i = index"
+        (click)="mostrarFotos(i)">
+        <img src="{{anexo}}">
+      </ion-thumbnail>
+    </div>
+  </ion-scroll>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (click)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (click)="salvarLote($event)">
+          Confirmar
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

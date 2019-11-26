@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Pesquisar {{nome}}..." [(ngModel)]="searchText"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content hide-fab>
+
+  <ion-list radio-group padding-top>
+  
+    <ion-item *ngFor="let item of listaItens | filterarray: searchText ">
+      <ion-label>{{item.descricao}}</ion-label>
+      <ion-radio checked="{{item.id==idSelecionado}}" value="{{item.id}}" (tap)="selecionar(item)"></ion-radio>
+    </ion-item>
+  
+  </ion-list>
+
+  <ion-fab left bottom #fab (click)="fechar()">
+    <button ion-fab color="primary"><ion-icon name="ios-arrow-round-back-outline" (click)="fechar()"></ion-icon></button>
+  </ion-fab>
+
+
+</ion-content>
+

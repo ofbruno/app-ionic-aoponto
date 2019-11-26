@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Oferta de lote</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col text-left>
+          <h2>Oferta de lote</h2>
+          <p text-left>
+            <ion-note>há 2 horas</ion-note>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-row>
+          <ion-col col-4>Município</ion-col>
+          <ion-col col-8 text-wrap>Belo Horizonte/MG</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>Distância daqui</ion-col>
+          <ion-col col-8 text-wrap>240 km</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>Quantidade</ion-col>
+          <ion-col col-8 text-wrap>35 animais</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>Raça</ion-col>
+          <ion-col col-8 text-wrap>Angus</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>Sexo</ion-col>
+          <ion-col col-8 text-wrap>Macho castrado</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>Disponibilidade</ion-col>
+          <ion-col col-8 text-wrap>15 dias</ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button icon-start clear small (tap)="selecionarLote()">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Tenho interesse</div>
+        </button>
+      </ion-col>
+      <ion-col col-6 text-right>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-down"></ion-icon>
+          <div>Agora não</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>

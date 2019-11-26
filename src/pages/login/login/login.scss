@@ -1,0 +1,76 @@
+/*
+page-login {
+    .socialLogin {
+      float: left;
+      width: 100%;
+      text-align: center;
+    }
+    .facebook{
+      background-color: #3b5998;;
+    }
+    .google{
+      background-color: #d13d35;
+    }
+    .github{
+      background-color: #000000;
+    }
+    .twitter{
+      background-color: #728fdb;
+    }
+    .container-logo {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0;
+      img {
+        max-width: 100px;
+      }
+    }
+    .card-header{
+      background-color: #F5F5F5;
+      padding-top: 8px;
+      padding-bottom: 5px;
+      p {
+          padding-left: 16px;
+          text-transform: uppercase;
+          font-size: 1.15rem;
+      }
+    }
+
+    .main-content {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      min-height: 100%;
+    }
+    .container-bottom {
+      @include inline-flex;
+      @include flex-wrap(wrap);
+      @include align-self(flex-end);
+    }
+    .item-inner{
+      border-bottom: 0px !important;
+    }
+    .list-md, .list-ios {
+      //margin:0 !important;
+    }
+    .list {
+      //padding:0 !important;
+    }
+    form {
+      .button-md,
+      .button-ios {
+        margin: 0px !important;
+        background-color: $black;
+        padding: 26px !important;
+      }
+    }
+    .form-bottom-text {
+      display: inline-block;
+      width: 100%;
+    }
+    .eye-icon-btn{
+      background-color: transparent !important;
+      color: $black;
+      font-size: 2.2rem !important;
+      }
+  }
+  */

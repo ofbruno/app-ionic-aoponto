@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notícia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div [hidden]="carregando">
+    <ion-card>
+  
+      <img *ngIf="noticia.imagemUrl" src="{{noticia.imagemUrl}}" />
+  
+      <ion-item text-wrap>
+        <div id="titulo">{{noticia.titulo}}</div>
+      </ion-item>
+  
+      <ion-card-content>
+        <div id="descricao" [innerHTML]="noticia.descricao"></div>
+  
+        <div *ngIf="noticia.fonteNome">
+          <p>Por <b>{{noticia.fonteNome}}</b></p>
+        </div>
+  
+        <div id="data">{{noticia.descricaoTempo}}</div>
+        <div id="conteudo" [innerHTML]="noticia.conteudo"></div>
+  
+        <div id="share">
+          <ion-icon name="share" item-left></ion-icon>
+          <span>Compartilhar</span>
+        </div>
+      </ion-card-content>
+  
+    </ion-card>
+  
+    <div id="fonte" *ngIf="noticia.fonteNome">
+      <span>{{noticia.fonteNome}}</span>
+      <ion-icon name="share-alt"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

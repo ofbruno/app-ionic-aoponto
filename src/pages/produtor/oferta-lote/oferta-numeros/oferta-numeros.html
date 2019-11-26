@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list-header text-wrap>
+        <p>Idade, peso e quantidade</p>
+      </ion-list-header>
+  
+      <div padding class="bg-gray-light">
+        <p text-wrap no-margin>Informe a idade aproximada (em meses) e o peso médio dos animais, além da quantidade de cabeças deste lote</p>
+      </div>
+
+  <ion-list>
+
+
+    <ion-item (tap)="solicitarIdade()">
+      <ion-row>
+        <ion-col col-5>Idade</ion-col>
+        <ion-col col-7>
+          <label *ngIf="!lote.idade" [ngClass]="{'requerido': requerido=='idade'}">Informar</label>
+          <span [innerText]="((lote.idade) ? lote.idade + ' meses' : '')"></span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarPesoMedio()">
+      <ion-row>
+        <ion-col col-5>Peso médio</ion-col>
+        <ion-col col-7>
+            <label *ngIf="!lote.pesoMedio" [ngClass]="{'requerido': requerido=='pesoMedio'}">Informar</label>
+            <span [innerText]="((lote.pesoMedio) ? lote.pesoMedio + ' Kg' : '')"></span>
+          </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (tap)="solicitarQuantidade()">
+      <ion-row>
+        <ion-col col-5>Quantidade</ion-col>
+        <ion-col col-7>
+            <label *ngIf="!lote.quantidade" [ngClass]="{'requerido': requerido=='quantidade'}">Informar</label>
+            <span [innerText]="lote.quantidade || ''"></span>
+          </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (click)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (click)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>

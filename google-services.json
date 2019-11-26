@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "579180688148",
+    "firebase_url": "https://aoponto-555bd.firebaseio.com",
+    "project_id": "aoponto-555bd",
+    "storage_bucket": "aoponto-555bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579180688148:android:12c060ac5b1dee14",
+        "android_client_info": {
+          "package_name": "br.com.quadsystems.aoponto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579180688148-kr4flkkms2a3c9dls0najsebf5p1bcpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.quadsystems.aoponto",
+            "certificate_hash": "59117e9b11186cdedaf2b75acea50da4c7012a8d"
+          }
+        },
+        {
+          "client_id": "579180688148-b5kkb54g88vjgt5kdo0tf522r8i29j87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXrczOcqS4_Nz8xwopFk1YOPPUyHwnXIc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579180688148-b5kkb54g88vjgt5kdo0tf522r8i29j87.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "579180688148-ji73rvtr0mov7sbn1faq9jftltkhd72b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.quadsystems.aoponto"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

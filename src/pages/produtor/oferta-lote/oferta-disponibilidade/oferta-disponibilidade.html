@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nova oferta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list-header text-wrap>
+    <p>Disponibilidade</p>
+  </ion-list-header>
+
+  <div padding class="bg-gray-light">
+    <p text-wrap no-margin>
+      Em quantos dias este lote estará disponível para venda?
+    </p>
+  </div>
+
+  <ion-list radio-group [(ngModel)]="lote.disponibilidade">
+
+
+    <ion-item *ngFor="let p of disponibilidades">
+      <ion-label>{{p.descricao}}</ion-label>
+      <ion-radio value="{{p.valor}}" (ionSelect)="valorAlterado()"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-buttons left>
+        <button ion-button clear icon-left color="dark" (tap)="voltar($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+          Voltar
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col>
+      <ion-buttons right>
+        <button ion-button clear icon-right (tap)="proxima($event)">
+          Próximo
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</ion-footer>
